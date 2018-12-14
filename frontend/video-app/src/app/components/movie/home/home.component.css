@@ -1,0 +1,45 @@
+table {
+    width: 100%;
+  }
+  .mat-column-right {
+    text-align: center;
+    align-content: center;
+  }
+  #searchField{
+    font-size: 20px;
+    text-align:center;
+    width: 100%;
+    color: purple;
+  }
+  
+  
+  /* Header */
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  ul {
+    display: flex;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .headerButton:hover{
+    background-color: yellow;
+    transition: 0.5s;
+  
+  }
+  mat-toolbar{
+    background-color: purple;
+  }
+  

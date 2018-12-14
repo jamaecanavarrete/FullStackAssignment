@@ -1,0 +1,64 @@
+<mat-toolbar>
+  <span>
+    <a routerLink="/" id="header">Video Store</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li>
+      <a class="headerButton" mat-button (click)="login()" routerLinkActive="mat-accent">Login</a>
+    </li>
+  </ul>
+</mat-toolbar>
+<h2>Welcome to Dashboard!</h2>
+<div>
+<mat-card>
+  <mat-form-field id="searchField">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <br>
+  <br>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Title -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+    <!-- Running Time -->
+    <ng-container matColumnDef="runningTime">
+      <th mat-header-cell *matHeaderCellDef>Running Time</th>
+      <td mat-cell *matCellDef="let element"> {{element.runningTime}} minutes </td>
+    </ng-container>
+    <!-- Genre -->
+    <ng-container matColumnDef="genre">
+      <th mat-header-cell *matHeaderCellDef>Genre</th>
+      <td mat-cell *matCellDef="let element"> {{element.genre}} </td>
+    </ng-container>
+    <!-- Rating -->
+    <ng-container matColumnDef="rating">
+      <th mat-header-cell *matHeaderCellDef>Rating</th>
+      <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
+    </ng-container>
+    <!-- Director -->
+    <ng-container matColumnDef="director">
+      <th mat-header-cell *matHeaderCellDef>Director</th>
+      <td mat-cell *matCellDef="let element"> {{element.director}} </td>
+    </ng-container>
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+    <!-- Reserve -->
+    <ng-container matColumnDef="reserve">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td id="controlButtons" mat-cell *matCellDef="let element">
+        <button id="reserveButton" (click)="findMovie(element._id)" *ngIf='element.status=="Available"' mat-raised-button >RESERVE</button>
+      </td></ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</mat-card>
+</div>

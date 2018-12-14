@@ -1,0 +1,60 @@
+<div>
+    <br>
+    <mat-card>
+      <section class="mat-typography">
+        <h3>Update A Movie</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="updateForm" class="edit-form">
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Title" formControlName="title" #title>
+          <!--<mat-error *ngIf="createForm.controls['title'].errors.required">
+            Title is <strong>required</strong>
+          </mat-error>-->
+        </mat-form-field>
+        <br>
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Running Time" formControlName="runningTime" #runningTime>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-select placeholder="Genre" formControlName="genre" #genre>
+              <mat-option value="Action">Action</mat-option>
+              <mat-option value="Adventure">Adventure</mat-option>
+              <mat-option value="Drama">Drama</mat-option>
+              <mat-option value="Romance">Romance</mat-option>
+              <mat-option value="Comedy">Comedy</mat-option>
+              <mat-option value="Suspense">Suspense</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-select placeholder="Rating" formControlName="rating" #rating>
+              <mat-option value=1>1</mat-option>
+              <mat-option value=2>2</mat-option>
+              <mat-option value=3>3</mat-option>
+              <mat-option value=4>4</mat-option>
+              <mat-option value=5>5</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="field-full-width">
+          <textarea matInput placeholder="Director" formControlName="director" #director></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-select placeholder="Status" formControlName="status" #status>
+              <mat-option value="Available">Available</mat-option>
+              <mat-option value="Unavailable">Unavailable</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerLink="/movies">Back</button>&nbsp;
+        <button type="submit" (click)="updateMovie(title.value, runningTime.value, genre.selected.value, rating.selected.value, director.value, status.value)" [disabled]="updateForm.pristine || updateForm.invalid"
+        mat-raised-button color="primary">Save</button>
+      </form>
+    </mat-card>
+  </div>

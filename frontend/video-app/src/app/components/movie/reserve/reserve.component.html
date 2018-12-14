@@ -1,0 +1,49 @@
+<div>
+    <br>
+    <mat-card>
+      <section class="mat-typography">
+        <h3>Reserve A Movie</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="updateForm" class="edit-form">
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Title" formControlName="title" #title  readonly>
+          <!--<mat-error *ngIf="createForm.controls['title'].errors.required">
+            Title is <strong>required</strong>
+          </mat-error>-->
+        </mat-form-field>
+        <br>
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Running Time" formControlName="runningTime" #runningTime readonly>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Genre" formControlName="genre" #genre readonly>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Rating" formControlName="rating" #rating readonly>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Director" formControlName="director" #director readonly>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-select placeholder="Customer" formControlName="customer" #customer>
+              <mat-option value="1">Jim Smith</mat-option>
+              <mat-option value="2">John Doe</mat-option>
+              <mat-option value="3">Jane Doe</mat-option>
+              <mat-option value="4">Bianca</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerLink="/home">Back</button>&nbsp;
+        <button type="submit" (click)="updateMovie(title.value, runningTime.value, genre.value, rating.value, director.value, Unavailable)" [disabled]="updateForm.pristine || updateForm.invalid"
+        mat-raised-button color="primary">Save</button>
+      </form>
+    </mat-card>
+  </div>
