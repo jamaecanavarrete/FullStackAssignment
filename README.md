@@ -1,6 +1,6 @@
-Coded by:
-Erika Kathleen Gilo 101085825
-Jamaeca Navarrete 101088700
+Coded by:  
+Erika Kathleen Gilo 101085825  
+Jamaeca Navarrete 101088700  
 
 ## Login
 
